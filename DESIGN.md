@@ -25,6 +25,12 @@ typography:
     fontWeight: 750
     lineHeight: 1.02
     letterSpacing: "-0.03em"
+  cierre:
+    fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
+    fontSize: "clamp(2.25rem, 5vw, 4rem)"
+    fontWeight: 750
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
   quote:
     fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
     fontSize: "clamp(1.875rem, 4.6vw, 3.625rem)"
@@ -47,6 +53,16 @@ typography:
     fontSize: "clamp(1.25rem, 2.4vw, 1.625rem)"
     fontWeight: 500
     letterSpacing: "-0.015em"
+  body-lg:
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.6
+  small:
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.6
   label:
     fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
     fontSize: "0.8125rem"
@@ -105,6 +121,8 @@ components:
 
 # Design System: Sumate al Mundo
 
+> Implementación: los tokens del frontmatter están declarados en el `@theme` de Tailwind (`src/styles/global.css`) con los mismos nombres, así que cada token es una clase (`bg-papel`, `text-headline`, `shadow-accion`…). Si cambia un valor, cambiarlo en los dos lugares.
+
 ## Overview
 
 **Creative North Star: "Diario de viaje"**
@@ -155,11 +173,14 @@ Una paleta de dos tintas sobre papel: azul marino y naranja, ambos tomados del l
 
 ### Hierarchy
 - **Display** (750, `clamp(2.75rem, 8.5vw, 6rem)`, 1.02): solo el título del hero, "Viajá" más la frase rotativa. Ancho máximo de unas 14 letras por línea.
-- **Headline** (750, `clamp(2.25rem, 4.6vw, 3.75rem)`, 1.02): títulos de sección ("Más formas de viajar, la misma esencia.", "Sumate con nosotros").
+- **Headline** (750, `clamp(2.25rem, 4.6vw, 3.75rem)`, 1.02): títulos de sección ("Más formas de viajar, la misma esencia.").
+- **Cierre** (750, `clamp(2.25rem, 5vw, 4rem)`, 1.02): el título del bloque final, "Sumate con nosotros". Un poco más grande que Headline en pantallas medianas, porque comparte fila con los botones.
 - **Quote** (600, `clamp(1.875rem, 4.6vw, 3.625rem)`, 1.1): la cita destacada; ancho máximo de unas 22 letras por línea.
 - **Title** (650, `clamp(1.5rem, 2.6vw, 2.125rem)`, 1.02): los nombres de cada programa en la lista.
 - **Question** (500, `clamp(1.25rem, 2.4vw, 1.625rem)`, tracking -0.015em): la pregunta "¿Querés sumarte al mundo?" junto al botón del hero, en blanco al 92%. Es un puente entre el título y el botón: más grande que el texto, sin competir con el display.
-- **Body** (400, 1.0625rem, 1.6): párrafos. Los textos de apoyo van en 1.125rem con un ancho máximo de unas 38 letras por línea.
+- **Body** (400, 1.0625rem, 1.6): párrafos.
+- **Body grande** (`body-lg`, 1.125rem, 1.6): textos de apoyo, como la introducción de una sección (ancho máximo de unas 38 letras por línea), y el nombre de la marca en el header (en Bricolage, 700).
+- **Small** (0.9375rem, 1.6): el footer y el botón chico del header.
 - **Label** (700, 0.8125rem, letter-spacing 0.08em, mayúsculas): solo la etiqueta "Nuevo".
 
 ### Named Rules

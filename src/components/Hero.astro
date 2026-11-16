@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets';
 import hero from '../assets/hero.jpg';
 import { MAIN_SITE_URL, TAGLINES } from '../data/links';
+import Button from './Button.astro';
 
 interface Props {
 	/** Muestra un indicador para bajar (solo cuando hay secciones debajo) */
@@ -10,45 +11,53 @@ interface Props {
 
 const { scrollTo } = Astro.props;
 const [first, ...rest] = TAGLINES;
+
+// Todas las frases ocupan la misma celda de grid (así el layout no se mueve).
+// La activa se marca con data-active; la que sale, con data-leaving.
+const phrase =
+	'col-start-1 row-start-1 translate-y-[0.35em] opacity-0 blur-[8px] transition-[opacity,translate,filter] duration-700 ease-salida motion-reduce:transition-none data-active:translate-y-0 data-active:opacity-100 data-active:blur-none data-leaving:-translate-y-[0.35em]';
 ---
 
-<section class="hero">
+<section class="relative isolate grid min-h-svh items-end overflow-hidden bg-azul-tinta text-white">
 	<Picture
 		src={hero}
 		alt=""
 		formats={['avif', 'webp']}
 		widths={[640, 960, 1280, 1920, 2560]}
 		sizes="100vw"
-		class="bg"
+		class="absolute inset-0 -z-2 size-full object-cover object-[40%_50%]"
 		loading="eager"
 		fetchpriority="high"
 	/>
-	<div class="scrim" aria-hidden="true"></div>
+	<div class="velo-hero absolute inset-0 -z-1" aria-hidden="true"></div>
 
-	<div class="wrap content">
-		<h1 class="headline">
-			<span class="lead">Viajá</span>
-			<span class="rotator" data-rotator>
-				<span class="phrase" data-active>{first}</span>
+	<div class="wrap pt-32 pb-[clamp(3.5rem,9vh,6rem)]">
+		<h1 class="max-w-[14ch] text-display">
+			<span class="block text-durazno">Viajá</span>
+			<span class="grid" data-rotator>
+				<span class={phrase} data-phrase data-active>{first}</span>
 				{/* El resto de las frases va en un <template>: no forma parte del texto del h1
 				    (ni para buscadores ni para lectores de pantalla) y el script las suma. */}
-				<template>{rest.map((t) => <span class="phrase" aria-hidden="true">{t}</span>)}</template>
+				<template>{rest.map((t) => <span class={phrase} data-phrase aria-hidden="true">{t}</span>)}</template>
 			</span>
 		</h1>
 
-		<div class="cta-row">
-			<p class="question">¿Querés sumarte al mundo?</p>
-			<a class="btn btn-primary" href={MAIN_SITE_URL}>
-				Quiero sumarme
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-			</a>
+		<div class="mt-[clamp(2rem,5vh,3.25rem)] flex flex-wrap items-center gap-x-7 gap-y-4">
+			<p class="font-display text-question text-white/92">¿Querés sumarte al mundo?</p>
+			<Button href={MAIN_SITE_URL} arrow>Quiero sumarme</Button>
 		</div>
 	</div>
 
 	{
 		scrollTo && (
-			<a class="scroll-cue" href={scrollTo} aria-label="Ver más">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+			<a
+				class="absolute right-gutter bottom-[clamp(3.5rem,9vh,6rem)] hidden size-12 place-items-center rounded-full inset-ring-[1.5px] inset-ring-white/50 transition-colors duration-300 ease-salida hover:bg-white/15 min-[641px]:grid"
+				href={scrollTo}
+				aria-label="Ver más"
+			>
+				<svg class="w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M12 5v14M6 13l6 6 6-6" />
+				</svg>
 			</a>
 		)
 	}
@@ -61,7 +70,7 @@ const [first, ...rest] = TAGLINES;
 	if (rotator && !reduce) {
 		const template = rotator.querySelector('template');
 		if (template) rotator.append(template.content.cloneNode(true));
-		const phrases = Array.from(rotator.querySelectorAll<HTMLElement>('.phrase'));
+		const phrases = Array.from(rotator.querySelectorAll<HTMLElement>('[data-phrase]'));
 		let i = 0;
 		setInterval(() => {
 			phrases[i].removeAttribute('data-active');
@@ -73,125 +82,3 @@ const [first, ...rest] = TAGLINES;
 		}, 2800);
 	}
 </script>
-
-<style>
-	.hero {
-		position: relative;
-		isolation: isolate;
-		min-height: 100svh;
-		display: grid;
-		align-items: end;
-		color: #fff;
-		overflow: hidden;
-		background: var(--ink);
-	}
-
-	.hero :global(.bg),
-	.hero :global(.bg img) {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: 40% 50%;
-		z-index: -2;
-	}
-
-	.scrim {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		background:
-			linear-gradient(180deg, rgb(20 22 64 / 0.55) 0%, transparent 22%),
-			linear-gradient(20deg, rgb(20 22 64 / 0.94) 10%, rgb(20 22 64 / 0.7) 45%, rgb(20 22 64 / 0.15) 80%);
-	}
-
-	.content {
-		padding-block: 8rem clamp(3.5rem, 9vh, 6rem);
-	}
-
-	.headline {
-		font-size: clamp(2.75rem, 8.5vw, 6rem);
-		font-weight: 750;
-		max-width: 14ch;
-	}
-
-	.lead {
-		display: block;
-		color: #ffb196;
-	}
-
-	.rotator {
-		display: grid;
-	}
-
-	.phrase {
-		grid-area: 1 / 1;
-		opacity: 0;
-		transform: translateY(0.35em);
-		filter: blur(8px);
-		transition:
-			opacity 0.7s var(--ease-out),
-			transform 0.7s var(--ease-out),
-			filter 0.7s var(--ease-out);
-	}
-
-	.phrase[data-active] {
-		opacity: 1;
-		transform: none;
-		filter: none;
-	}
-
-	.phrase[data-leaving] {
-		transform: translateY(-0.35em);
-	}
-
-	.cta-row {
-		margin-top: clamp(2rem, 5vh, 3.25rem);
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 1rem 1.75rem;
-	}
-
-	.question {
-		font-family: var(--font-display);
-		font-size: clamp(1.25rem, 2.4vw, 1.625rem);
-		font-weight: 500;
-		letter-spacing: -0.015em;
-		color: rgb(255 255 255 / 0.92);
-	}
-
-	.scroll-cue {
-		position: absolute;
-		right: var(--gutter);
-		bottom: clamp(3.5rem, 9vh, 6rem);
-		display: grid;
-		place-items: center;
-		width: 3rem;
-		height: 3rem;
-		border-radius: 50%;
-		box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.5);
-		transition: background-color 0.3s var(--ease-out);
-	}
-
-	.scroll-cue:hover {
-		background: rgb(255 255 255 / 0.15);
-	}
-
-	.scroll-cue svg {
-		width: 1.25rem;
-	}
-
-	@media (max-width: 640px) {
-		.scroll-cue {
-			display: none;
-		}
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.phrase {
-			transition: none;
-		}
-	}
-</style>

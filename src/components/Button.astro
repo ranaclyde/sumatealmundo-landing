@@ -1,0 +1,56 @@
+---
+/**
+ * Botón píldora del sistema (ver DESIGN.md › Components › Buttons).
+ * - primary: acción principal, naranja, con flecha.
+ * - ghost: sobre la foto o fondos oscuros.
+ * - outline: acción secundaria sobre papel.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+	variant?: 'primary' | 'ghost' | 'outline';
+	size?: 'md' | 'sm';
+	arrow?: boolean;
+}
+
+const { variant = 'primary', size = 'md', arrow = false, class: className, ...attrs } = Astro.props;
+
+const variants = {
+	primary: 'bg-naranja-brujula-profundo text-white shadow-accion hover:-translate-y-px hover:bg-naranja-brujula-oscuro',
+	ghost: 'text-white inset-ring-[1.5px] inset-ring-white/55 hover:bg-white hover:text-azul-tinta',
+	outline: 'text-azul-tinta inset-ring-[1.5px] inset-ring-azul-tinta hover:bg-azul-tinta hover:text-white',
+};
+
+const sizes = {
+	md: 'px-[1.4em] py-[0.85em] text-[1rem]',
+	sm: 'px-[1.15em] py-[0.6em] text-small',
+};
+---
+
+<a
+	class:list={[
+		'group inline-flex items-center gap-[0.6em] rounded-full font-display font-[650] tracking-[-0.01em] no-underline transition-[background-color,color,translate,box-shadow] duration-300 ease-salida',
+		variants[variant],
+		sizes[size],
+		className,
+	]}
+	{...attrs}
+>
+	<slot />
+	{
+		arrow && (
+			<svg
+				class="size-[1.1em] transition-transform duration-300 ease-salida group-hover:translate-x-[3px]"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M5 12h14M13 6l6 6-6 6" />
+			</svg>
+		)
+	}
+</a>

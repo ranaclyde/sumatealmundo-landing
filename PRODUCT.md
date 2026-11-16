@@ -45,7 +45,7 @@ Viajar con propósito: SAM organiza experiencias interculturales (inmersión en 
 
 - Logo y foto del hero en `src/assets/`.
 - PDFs legales en `public/docs/`.
-- Cita de Margaret Mead usada en la web principal (la redacción en español la eligió Claude y está pendiente de confirmar contra el original).
+- Cita de Margaret Mead, también usada en la web principal; la redacción en español está confirmada por el dueño.
 - No hay testimonios, cifras, destinos ni precios. No inventarlos.
 
 ## Product Principles

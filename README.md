@@ -1,4 +1,4 @@
-# Sumate al Mundo · TUR
+# Sumate al Mundo
 
 Landing de **Sumate al Mundo (SAM)**, Empresa de Viajes y Turismo (Legajo 18281). Se publica en [sumatealmundo.tur.ar](https://sumatealmundo.tur.ar) y lleva a la web principal, [sumatealmundo.com](https://sumatealmundo.com/).
 

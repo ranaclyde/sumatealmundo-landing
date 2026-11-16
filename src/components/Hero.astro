@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { scrollTo } = Astro.props;
+const [first, ...rest] = TAGLINES;
 ---
 
 <section class="hero">
@@ -27,9 +28,11 @@ const { scrollTo } = Astro.props;
 	<div class="wrap content">
 		<h1 class="headline">
 			<span class="lead">Viajá</span>
-			<span class="sr-only">{TAGLINES.join(', ')}</span>
-			<span class="rotator" aria-hidden="true" data-rotator>
-				{TAGLINES.map((t, i) => <span class="phrase" data-active={i === 0 ? '' : undefined}>{t}</span>)}
+			<span class="rotator" data-rotator>
+				<span class="phrase" data-active>{first}</span>
+				{/* El resto de las frases va en un <template>: no forma parte del texto del h1
+				    (ni para buscadores ni para lectores de pantalla) y el script las suma. */}
+				<template>{rest.map((t) => <span class="phrase" aria-hidden="true">{t}</span>)}</template>
 			</span>
 		</h1>
 
@@ -56,6 +59,8 @@ const { scrollTo } = Astro.props;
 	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	if (rotator && !reduce) {
+		const template = rotator.querySelector('template');
+		if (template) rotator.append(template.content.cloneNode(true));
 		const phrases = Array.from(rotator.querySelectorAll<HTMLElement>('.phrase'));
 		let i = 0;
 		setInterval(() => {

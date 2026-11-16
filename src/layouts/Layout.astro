@@ -9,9 +9,12 @@ interface Props {
 }
 
 const {
-	title = 'Sumate al Mundo · TUR',
-	description = 'Sumate al Mundo (SAM), Empresa de Viajes y Turismo. Viajá como turista o como viajera/o, sumergite en otra cultura y sumate a cambiar el mundo.',
+	title = 'Sumate al Mundo · Agencia de viajes interculturales',
+	description = 'Agencia de viajes intercultural: viajes de inmersión para vivir otra cultura, programas académicos y paquetes turísticos con asistencia en destino.',
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og-image.jpg', Astro.site);
 ---
 
 <!doctype html>
@@ -26,6 +29,21 @@ const {
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#1f2257" />
 		<title>{title}</title>
+		<link rel="canonical" href={canonical} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- Vista previa al compartir (WhatsApp, Facebook, Instagram, X) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:site_name" content="Sumate al Mundo" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Logo de Sumate al Mundo (SAM)" />
+		<meta name="twitter:card" content="summary_large_image" />
 	</head>
 	<body>
 		<slot />

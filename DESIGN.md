@@ -1,5 +1,5 @@
 ---
-name: Sumate al Mundo · TUR
+name: Sumate al Mundo
 description: Landing de una agencia de viajes con propósito, con el estilo de un diario de viaje.
 colors:
   azul-tinta: "#1f2257"
@@ -10,6 +10,7 @@ colors:
   durazno: "#ffb196"
   papel: "#f6f1e7"
   papel-profundo: "#ece4d3"
+  azul-noche: "#141640"
   blanco: "#ffffff"
 typography:
   display:
@@ -41,6 +42,11 @@ typography:
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: 1.6
+  question:
+    fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
+    fontSize: "clamp(1.25rem, 2.4vw, 1.625rem)"
+    fontWeight: 500
+    letterSpacing: "-0.015em"
   label:
     fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
     fontSize: "0.8125rem"
@@ -97,7 +103,7 @@ components:
     padding: "0.3em 0.8em"
 ---
 
-# Design System: Sumate al Mundo · TUR
+# Design System: Sumate al Mundo
 
 ## Overview
 
@@ -127,7 +133,8 @@ Una paleta de dos tintas sobre papel: azul marino y naranja, ambos tomados del l
 - **Durazno** (`durazno`): el naranja en versión clara para fondos oscuros. Es la palabra "Viajá" sobre la foto y el hover de los links del footer.
 
 ### Neutral
-- **Azul tinta** (`azul-tinta`): el texto principal, los títulos, el footer y el velo sobre la foto del hero. También el `theme-color` del navegador.
+- **Azul tinta** (`azul-tinta`): el texto principal, los títulos y el footer. También el `theme-color` del navegador.
+- **Azul noche** (`azul-noche`): solo para el velo sobre la foto del hero, siempre con transparencia. Es un azul tinta más oscuro para que el texto blanco tenga contraste sobre cualquier zona de la foto. Lo forman dos degradados: uno desde arriba (55% de opacidad que desaparece al 22% del alto, para el header) y otro diagonal a 20° desde abajo a la izquierda (94% → 70% → 15%), que es donde va el texto.
 - **Azul tinta suave** (`azul-tinta-suave`): texto secundario, como párrafos de apoyo, descripciones y la firma de la cita.
 - **Papel** (`papel`): el fondo de la página.
 - **Papel profundo** (`papel-profundo`): banda de fondo para separar una sección (la cita) sin usar líneas ni sombras.
@@ -151,6 +158,7 @@ Una paleta de dos tintas sobre papel: azul marino y naranja, ambos tomados del l
 - **Headline** (750, `clamp(2.25rem, 4.6vw, 3.75rem)`, 1.02): títulos de sección ("Más formas de viajar, la misma esencia.", "Sumate con nosotros").
 - **Quote** (600, `clamp(1.875rem, 4.6vw, 3.625rem)`, 1.1): la cita destacada; ancho máximo de unas 22 letras por línea.
 - **Title** (650, `clamp(1.5rem, 2.6vw, 2.125rem)`, 1.02): los nombres de cada programa en la lista.
+- **Question** (500, `clamp(1.25rem, 2.4vw, 1.625rem)`, tracking -0.015em): la pregunta "¿Querés sumarte al mundo?" junto al botón del hero, en blanco al 92%. Es un puente entre el título y el botón: más grande que el texto, sin competir con el display.
 - **Body** (400, 1.0625rem, 1.6): párrafos. Los textos de apoyo van en 1.125rem con un ancho máximo de unas 38 letras por línea.
 - **Label** (700, 0.8125rem, letter-spacing 0.08em, mayúsculas): solo la etiqueta "Nuevo".
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-11-16T18:14:53+00:00",
-  "title": "Design System: Sumate al Mundo · TUR",
+  "title": "Design System: Sumate al Mundo",
   "extensions": {
     "colorMeta": {
       "azul-tinta": {
@@ -147,6 +147,23 @@
           "#d1d1d1",
           "#eeeeee"
         ]
+      },
+      "azul-noche": {
+        "role": "neutral",
+        "displayName": "Azul noche",
+        "canonical": "#141640",
+        "oklch": "oklch(22.8% 0.078 276.2)",
+        "usage": "Solo para el velo del hero, con transparencia: rgb(20 22 64 / 0.55) arriba; rgb(20 22 64 / 0.94 → 0.7 → 0.15) en diagonal.",
+        "tonalRamp": [
+          "#070820",
+          "#1f2343",
+          "#3b4169",
+          "#5a6291",
+          "#7d86b5",
+          "#a2abd7",
+          "#c6cff7",
+          "#e5ecff"
+        ]
       }
     },
     "typographyMeta": {
@@ -177,6 +194,10 @@
       "button": {
         "displayName": "Botón",
         "purpose": "Texto de botones."
+      },
+      "question": {
+        "displayName": "Question",
+        "purpose": "La pregunta del hero junto al botón principal."
       }
     },
     "shadows": [

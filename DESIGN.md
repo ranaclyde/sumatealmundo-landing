@@ -147,7 +147,7 @@ Una paleta de dos tintas sobre papel: azul marino y naranja, ambos tomados del l
 ### Primary
 - **Naranja brújula profundo** (`naranja-brujula-profundo`): el color de la acción. Fondo de los botones principales, etiqueta "Nuevo", títulos destacados, links de texto y selección de texto. Es la versión del naranja con contraste suficiente para texto blanco encima.
 - **Naranja brújula** (`naranja-brujula`): el naranja vivo del logo. Solo como detalle decorativo (comillas de la cita, anillo de foco, selección); nunca de fondo bajo texto chico.
-- **Naranja brújula oscuro** (`naranja-brujula-oscuro`): el estado hover del botón principal.
+- **Naranja brújula oscuro** (`naranja-brujula-oscuro`): el estado hover del botón principal y el texto naranja chico sobre papel profundo (por ejemplo, "Vos cambiás el mundo"), donde el profundo no alcanza el contraste mínimo.
 - **Durazno** (`durazno`): el naranja en versión clara para fondos oscuros. Es la palabra "Viajá" sobre la foto y el hover de los links del footer.
 
 ### Neutral
@@ -250,4 +250,5 @@ El componente característico. "Viajá" queda fijo en durazno y la frase de abaj
 - **Don't** poner etiquetas o subtítulos chicos arriba de los títulos (salvo "Nuevo").
 - **Don't** usar texto con degradado ni sombras de bloque sin desenfoque.
 - **Don't** poner texto blanco chico sobre el naranja brújula vivo (`naranja-brujula`): no tiene contraste suficiente; usar el profundo.
+- **Don't** usar el naranja brújula profundo para texto de menos de 24px sobre papel profundo (4.08:1, no llega a 4.5:1); usar el oscuro (5.19:1). Sobre papel, el profundo alcanza justo (4.59:1).
 - **Don't** agregar un segundo momento animado que compita con el rotador del hero.

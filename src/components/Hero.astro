@@ -1,0 +1,192 @@
+---
+import { Picture } from 'astro:assets';
+import hero from '../assets/hero.jpg';
+import { MAIN_SITE_URL, TAGLINES } from '../data/links';
+
+interface Props {
+	/** Muestra un indicador para bajar (solo cuando hay secciones debajo) */
+	scrollTo?: string;
+}
+
+const { scrollTo } = Astro.props;
+---
+
+<section class="hero">
+	<Picture
+		src={hero}
+		alt=""
+		formats={['avif', 'webp']}
+		widths={[640, 960, 1280, 1920, 2560]}
+		sizes="100vw"
+		class="bg"
+		loading="eager"
+		fetchpriority="high"
+	/>
+	<div class="scrim" aria-hidden="true"></div>
+
+	<div class="wrap content">
+		<h1 class="headline">
+			<span class="lead">Viajá</span>
+			<span class="sr-only">{TAGLINES.join(', ')}</span>
+			<span class="rotator" aria-hidden="true" data-rotator>
+				{TAGLINES.map((t, i) => <span class="phrase" data-active={i === 0 ? '' : undefined}>{t}</span>)}
+			</span>
+		</h1>
+
+		<div class="cta-row">
+			<p class="question">¿Querés sumarte al mundo?</p>
+			<a class="btn btn-primary" href={MAIN_SITE_URL}>
+				Quiero sumarme
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+			</a>
+		</div>
+	</div>
+
+	{
+		scrollTo && (
+			<a class="scroll-cue" href={scrollTo} aria-label="Ver más">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+			</a>
+		)
+	}
+</section>
+
+<script>
+	const rotator = document.querySelector<HTMLElement>('[data-rotator]');
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	if (rotator && !reduce) {
+		const phrases = Array.from(rotator.querySelectorAll<HTMLElement>('.phrase'));
+		let i = 0;
+		setInterval(() => {
+			phrases[i].removeAttribute('data-active');
+			phrases[i].setAttribute('data-leaving', '');
+			const prev = phrases[i];
+			setTimeout(() => prev.removeAttribute('data-leaving'), 700);
+			i = (i + 1) % phrases.length;
+			phrases[i].setAttribute('data-active', '');
+		}, 2800);
+	}
+</script>
+
+<style>
+	.hero {
+		position: relative;
+		isolation: isolate;
+		min-height: 100svh;
+		display: grid;
+		align-items: end;
+		color: #fff;
+		overflow: hidden;
+		background: var(--ink);
+	}
+
+	.hero :global(.bg),
+	.hero :global(.bg img) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 40% 50%;
+		z-index: -2;
+	}
+
+	.scrim {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background:
+			linear-gradient(180deg, rgb(20 22 64 / 0.55) 0%, transparent 22%),
+			linear-gradient(20deg, rgb(20 22 64 / 0.94) 10%, rgb(20 22 64 / 0.7) 45%, rgb(20 22 64 / 0.15) 80%);
+	}
+
+	.content {
+		padding-block: 8rem clamp(3.5rem, 9vh, 6rem);
+	}
+
+	.headline {
+		font-size: clamp(2.75rem, 8.5vw, 6rem);
+		font-weight: 750;
+		max-width: 14ch;
+	}
+
+	.lead {
+		display: block;
+		color: #ffb196;
+	}
+
+	.rotator {
+		display: grid;
+	}
+
+	.phrase {
+		grid-area: 1 / 1;
+		opacity: 0;
+		transform: translateY(0.35em);
+		filter: blur(8px);
+		transition:
+			opacity 0.7s var(--ease-out),
+			transform 0.7s var(--ease-out),
+			filter 0.7s var(--ease-out);
+	}
+
+	.phrase[data-active] {
+		opacity: 1;
+		transform: none;
+		filter: none;
+	}
+
+	.phrase[data-leaving] {
+		transform: translateY(-0.35em);
+	}
+
+	.cta-row {
+		margin-top: clamp(2rem, 5vh, 3.25rem);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1rem 1.75rem;
+	}
+
+	.question {
+		font-family: var(--font-display);
+		font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+		font-weight: 500;
+		letter-spacing: -0.015em;
+		color: rgb(255 255 255 / 0.92);
+	}
+
+	.scroll-cue {
+		position: absolute;
+		right: var(--gutter);
+		bottom: clamp(3.5rem, 9vh, 6rem);
+		display: grid;
+		place-items: center;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.5);
+		transition: background-color 0.3s var(--ease-out);
+	}
+
+	.scroll-cue:hover {
+		background: rgb(255 255 255 / 0.15);
+	}
+
+	.scroll-cue svg {
+		width: 1.25rem;
+	}
+
+	@media (max-width: 640px) {
+		.scroll-cue {
+			display: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.phrase {
+			transition: none;
+		}
+	}
+</style>

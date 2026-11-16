@@ -2,7 +2,7 @@
 
 Landing de **Sumate al Mundo (SAM)**, Empresa de Viajes y Turismo (Legajo 18281). Se publica en [sumatealmundo.tur.ar](https://sumatealmundo.tur.ar) y lleva a la web principal, [sumatealmundo.com](https://sumatealmundo.com/).
 
-Es un sitio estático de una sola página hecho con [Astro](https://astro.build).
+Es un sitio estático de una sola página hecho con [Astro](https://astro.build) y [Tailwind CSS](https://tailwindcss.com) 4.
 
 ## Requisitos
 
@@ -26,11 +26,11 @@ public/
 └── favicon.ico, favicon-32.png, apple-touch-icon.png
 src/
 ├── assets/          Logo y foto del hero (Astro los optimiza)
-├── components/      Header, Hero y Footer
+├── components/      Header, Hero, Footer y Button
 ├── data/links.ts    URLs, redes y frases rotativas del hero
 ├── layouts/         Layout base (fuentes, meta, favicons)
 ├── pages/index.astro  La página, con la lista de "Más formas de viajar"
-└── styles/global.css  Colores, tipografía y botones
+└── styles/global.css  Tema de Tailwind: colores, tipografía, espaciado
 ```
 
 ## Cambios habituales

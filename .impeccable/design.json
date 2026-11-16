@@ -198,6 +198,18 @@
       "question": {
         "displayName": "Question",
         "purpose": "La pregunta del hero junto al botón principal."
+      },
+      "cierre": {
+        "displayName": "Cierre",
+        "purpose": "Título del bloque final \"Sumate con nosotros\"."
+      },
+      "body-lg": {
+        "displayName": "Body grande",
+        "purpose": "Textos de apoyo y nombre de la marca en el header."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Footer y botón chico."
       }
     },
     "shadows": [

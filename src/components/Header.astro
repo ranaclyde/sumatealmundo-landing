@@ -2,61 +2,18 @@
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.jpg';
 import { CONTACT_URL } from '../data/links';
+import Button from './Button.astro';
 ---
 
-<header class="site-header">
-	<div class="wrap bar">
-		<a href="/" class="brand">
-			<Image src={logo} alt="" width={44} height={39} class="logo" loading="eager" />
-			<span>Sumate al Mundo</span>
+<header class="absolute inset-x-0 top-0 z-10 py-5 text-white">
+	<div class="wrap flex items-center justify-between gap-4">
+		<a
+			href="/"
+			class="inline-flex items-center gap-3 font-display text-body-lg font-bold tracking-[-0.02em] no-underline"
+		>
+			<Image src={logo} alt="" width={44} height={39} class="h-auto w-11 rounded-[10px] bg-white p-[3px]" loading="eager" />
+			<span class="max-[359px]:hidden">Sumate al Mundo</span>
 		</a>
-		<a class="btn btn-ghost" href={CONTACT_URL}>Contactanos</a>
+		<Button variant="ghost" size="sm" href={CONTACT_URL}>Contactanos</Button>
 	</div>
 </header>
-
-<style>
-	.site-header {
-		position: absolute;
-		inset: 0 0 auto;
-		z-index: 10;
-		padding-block: 1.25rem;
-		color: #fff;
-	}
-
-	.bar {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-	}
-
-	.brand {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.75rem;
-		text-decoration: none;
-		font-family: var(--font-display);
-		font-weight: 700;
-		font-size: 1.125rem;
-		letter-spacing: -0.02em;
-	}
-
-	.logo {
-		width: 44px;
-		height: auto;
-		border-radius: 10px;
-		background: #fff;
-		padding: 3px;
-	}
-
-	.btn {
-		padding: 0.6em 1.15em;
-		font-size: 0.9375rem;
-	}
-
-	@media (max-width: 359px) {
-		.brand span {
-			display: none;
-		}
-	}
-</style>

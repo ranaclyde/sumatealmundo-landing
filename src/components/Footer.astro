@@ -18,139 +18,43 @@ const consumer = [
 		href: 'https://www.argentina.gob.ar/servicio/iniciar-un-reclamo-ante-defensa-del-consumidor',
 	},
 ];
+
+const socialLink =
+	'grid size-10 place-items-center rounded-full text-white inset-ring inset-ring-white/25 transition-colors duration-300 ease-salida hover:bg-white hover:text-azul-tinta';
+const groupTitle = 'mb-[0.9rem] text-[1rem] font-[650] tracking-[-0.01em] text-white';
+const footerLink = 'no-underline hover:text-durazno hover:underline';
 ---
 
-<footer class="site-footer">
-	<div class="wrap grid">
-		<div class="brand">
-			<Image src={logo} alt="Sumate al Mundo (SAM)" width={64} height={56} class="logo" />
-			<div class="social">
-				<a href={SOCIAL.facebook} aria-label="Facebook (se abre en una pestaña nueva)" {...NEW_TAB}>
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+<footer class="bg-azul-tinta pt-[clamp(3rem,7vw,4.5rem)] pb-8 text-small text-white/82">
+	<div class="wrap grid grid-cols-2 gap-10 min-[721px]:grid-cols-[1.4fr_1fr_1fr]">
+		<div class="col-span-full flex items-center justify-between min-[721px]:col-span-1 min-[721px]:block">
+			<Image src={logo} alt="Sumate al Mundo (SAM)" width={64} height={56} class="h-auto w-16 rounded-xl bg-white p-1" />
+			<div class="flex gap-2 min-[721px]:mt-6">
+				<a href={SOCIAL.facebook} class={socialLink} aria-label="Facebook (se abre en una pestaña nueva)" {...NEW_TAB}>
+					<svg class="w-[1.1rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 				</a>
-				<a href={SOCIAL.instagram} aria-label="Instagram (se abre en una pestaña nueva)" {...NEW_TAB}>
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><path d="M17.5 6.5h.01"></path></svg>
+				<a href={SOCIAL.instagram} class={socialLink} aria-label="Instagram (se abre en una pestaña nueva)" {...NEW_TAB}>
+					<svg class="w-[1.1rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><path d="M17.5 6.5h.01"></path></svg>
 				</a>
-				<a href={CONTACT_URL} aria-label="Contacto por email">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+				<a href={CONTACT_URL} class={socialLink} aria-label="Contacto por email">
+					<svg class="w-[1.1rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
 				</a>
 			</div>
 		</div>
 
 		<nav aria-label="Documentación">
-			<h2>La agencia</h2>
-			<ul>{docs.map((l) => <li><a href={l.href} {...NEW_TAB}>{l.label}</a></li>)}</ul>
+			<h2 class={groupTitle}>La agencia</h2>
+			<ul class="grid gap-2">{docs.map((l) => <li><a href={l.href} class={footerLink} {...NEW_TAB}>{l.label}</a></li>)}</ul>
 		</nav>
 
 		<nav aria-label="Consumidores">
-			<h2>Consumidores</h2>
-			<ul>{consumer.map((l) => <li><a href={l.href} {...NEW_TAB}>{l.label}</a></li>)}</ul>
+			<h2 class={groupTitle}>Consumidores</h2>
+			<ul class="grid gap-2">{consumer.map((l) => <li><a href={l.href} class={footerLink} {...NEW_TAB}>{l.label}</a></li>)}</ul>
 		</nav>
 	</div>
 
-	<div class="wrap legal">
+	<div class="wrap mt-12 grid gap-1 border-t border-white/14 pt-6 text-[0.8125rem] text-white/66">
 		<p>SUMATE AL MUNDO – SAM · Legajo 18281 E.V.T. (Empresa de Viajes y Turismo) · Ministerio de Turismo y Deportes</p>
 		<p>TABORDA, RAFAEL ALEJANDRO · CUIT 23-18174340-9</p>
 	</div>
 </footer>
-
-<style>
-	.site-footer {
-		background: var(--ink);
-		color: rgb(255 255 255 / 0.82);
-		padding-block: clamp(3rem, 7vw, 4.5rem) 2rem;
-		font-size: 0.9375rem;
-	}
-
-	.grid {
-		display: grid;
-		grid-template-columns: 1.4fr 1fr 1fr;
-		gap: 2.5rem;
-	}
-
-	.logo {
-		width: 64px;
-		height: auto;
-		border-radius: 12px;
-		background: #fff;
-		padding: 4px;
-	}
-
-	.social {
-		display: flex;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.social a {
-		display: grid;
-		place-items: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 50%;
-		box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
-		color: #fff;
-		transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
-	}
-
-	.social a:hover {
-		background: #fff;
-		color: var(--ink);
-	}
-
-	.social svg {
-		width: 1.1rem;
-	}
-
-	h2 {
-		font-size: 1rem;
-		font-weight: 650;
-		letter-spacing: -0.01em;
-		color: #fff;
-		margin-bottom: 0.9rem;
-	}
-
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: grid;
-		gap: 0.5rem;
-	}
-
-	ul a {
-		text-decoration: none;
-	}
-
-	ul a:hover {
-		color: #ffb196;
-		text-decoration: underline;
-	}
-
-	.legal {
-		margin-top: 3rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid rgb(255 255 255 / 0.14);
-		display: grid;
-		gap: 0.25rem;
-		font-size: 0.8125rem;
-		color: rgb(255 255 255 / 0.66);
-	}
-
-	@media (max-width: 720px) {
-		.grid {
-			grid-template-columns: 1fr 1fr;
-		}
-
-		.brand {
-			grid-column: 1 / -1;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
-		.social {
-			margin-top: 0;
-		}
-	}
-</style>

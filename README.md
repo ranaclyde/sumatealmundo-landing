@@ -17,6 +17,7 @@ Es un sitio estático de una sola página hecho con [Astro](https://astro.build)
 | `pnpm dev`               | Levanta el servidor local en `localhost:4321`     |
 | `pnpm build`             | Genera el sitio de producción en `dist/`          |
 | `pnpm preview`           | Sirve el build localmente para revisarlo          |
+| `pnpm test`              | Corre las pruebas de Playwright (usa el Chrome instalado) |
 
 ## Estructura
 

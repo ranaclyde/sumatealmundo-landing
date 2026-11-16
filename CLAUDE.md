@@ -23,8 +23,10 @@ El gestor de paquetes es pnpm (versión fijada en `packageManager` de `package.j
 
 - `pnpm install`
 - `astro dev --background` / `astro dev stop` / `astro dev status` / `astro dev logs`: usar el modo en segundo plano, según `AGENTS.md` (correr con `npx astro …` o `pnpm astro …`). Si el puerto 4321 está ocupado usa otro; verlo con `astro dev status`.
-- `pnpm build`: build estático en `dist/`. No hay tests ni linter; la verificación es un build sin errores más una revisión visual en escritorio y celular.
+- `pnpm build`: build estático en `dist/`. No hay linter.
 - `pnpm preview`: sirve el `dist/` generado.
+- `pnpm test`: pruebas de Playwright (`tests/`) contra el build de producción, en dos proyectos: `escritorio` (1440px) y `celular` (390px). Usan el Chrome instalado (`channel: 'chrome'`), así que no hace falta `playwright install`. Una sola prueba: `pnpm test -g "botón de tema"`; un solo proyecto: `pnpm test --project=celular`. Las capturas de página completa (clara y oscura) quedan adjuntas en `playwright-report/` (`pnpm exec playwright show-report`).
+- Si lo corre un agente, `astro preview` pasa solo a segundo plano y el `webServer` de Playwright lo da por terminado ("exited early"). En ese caso levantar antes `pnpm build && pnpm astro preview --port 4510` (queda en segundo plano y la config lo reutiliza) y detenerlo al final con `pnpm astro preview stop`.
 
 ## Arquitectura
 

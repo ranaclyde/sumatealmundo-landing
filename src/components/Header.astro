@@ -12,8 +12,49 @@ import Button from './Button.astro';
 			class="inline-flex items-center gap-3 font-display text-body-lg font-bold tracking-[-0.02em] no-underline"
 		>
 			<Image src={logo} alt="" width={44} height={39} class="h-auto w-11 rounded-[10px] bg-white p-[3px]" loading="eager" />
-			<span class="max-[359px]:sr-only">Sumate al Mundo</span>
+			<span class="max-[479px]:sr-only">Sumate al Mundo</span>
 		</a>
-		<Button variant="ghost" size="sm" href={CONTACT_URL}>Contactanos</Button>
+		<div class="flex items-center gap-2">
+			<!-- Solo aparece con JavaScript (sin JS el tema sigue al sistema) -->
+			<button
+				type="button"
+				data-theme-toggle
+				class="hidden size-10 cursor-pointer place-items-center rounded-full text-white inset-ring-[1.5px] inset-ring-white/55 transition-colors duration-300 ease-salida hover:bg-white hover:text-azul-tinta in-[.js]:grid"
+				aria-label="Cambiar a modo oscuro"
+			>
+				<svg class="w-[1.1rem] dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+				</svg>
+				<svg class="hidden w-[1.1rem] dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<circle cx="12" cy="12" r="4" />
+					<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+				</svg>
+			</button>
+			<Button variant="ghost" size="sm" href={CONTACT_URL}>Contactanos</Button>
+		</div>
 	</div>
 </header>
+
+<script>
+	const root = document.documentElement;
+	const toggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+	const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+	const isDark = () => (root.dataset.theme ? root.dataset.theme === 'dark' : systemDark.matches);
+
+	const syncLabel = () => {
+		toggle?.setAttribute('aria-label', isDark() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+	};
+
+	toggle?.addEventListener('click', () => {
+		const next = isDark() ? 'light' : 'dark';
+		root.dataset.theme = next;
+		try {
+			localStorage.setItem('tema', next);
+		} catch {}
+		syncLabel();
+	});
+
+	systemDark.addEventListener('change', syncLabel);
+	syncLabel();
+</script>

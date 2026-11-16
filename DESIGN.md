@@ -12,6 +12,10 @@ colors:
   papel-profundo: "#ece4d3"
   azul-noche: "#141640"
   blanco: "#ffffff"
+  azul-noche-superficie: "#1c1f4d"
+  azul-noche-pie: "#0e1033"
+  papel-suave: "#b9b6cf"
+  naranja-claro: "#ff8a65"
 typography:
   display:
     fontFamily: "Bricolage Grotesque Variable, Figtree Variable, sans-serif"
@@ -159,10 +163,24 @@ Una paleta de dos tintas sobre papel: azul marino y naranja, ambos tomados del l
 - **Blanco** (`blanco`): texto sobre azul tinta o naranja, y el fondo del logo.
 - **Línea**: azul tinta al 18% (`color-mix`), para los separadores de las listas.
 
+### Modo oscuro ("Diario de noche")
+El mismo diario, leído de noche: el fondo pasa a azul noche y el texto a papel. El hero no cambia, porque ya es oscuro.
+- **Fondo:** azul noche (`azul-noche`) en lugar de papel.
+- **Superficie** (`azul-noche-superficie`): la banda de la cita, en lugar de papel profundo.
+- **Pie** (`azul-noche-pie`): el footer, más oscuro que el fondo para que siga separándose.
+- **Texto:** papel (`papel`) en lugar de azul tinta; el secundario, papel suave (`papel-suave`) en lugar de azul tinta suave.
+- **Acento de texto** (`naranja-claro`): títulos destacados, hover de la lista y "Vos cambiás el mundo". Los fondos naranjas (botón principal, etiqueta "Nuevo") siguen en naranja brújula profundo con texto blanco.
+- **Línea:** papel al 16%.
+- **Botón outline:** borde y texto papel; al pasar el mouse se rellena de papel con texto azul noche.
+
+Contrastes verificados: papel sobre los tres fondos oscuros, entre 13.8:1 y 16.4:1; papel suave, 7.9:1 como mínimo; naranja claro, 6.7:1 como mínimo.
+
+**Cómo se activa.** Sigue la preferencia del sistema (`prefers-color-scheme`). El botón del header fuerza claro u oscuro con `data-theme` en `<html>` y la elección se guarda en `localStorage` (clave `tema`). Un script inline en el `<head>` aplica el tema guardado antes de pintar, para evitar el parpadeo. Sin JavaScript el botón no se muestra y el tema sigue al sistema.
+
 ### Named Rules
 **La regla de la aguja.** El naranja marca el rumbo: solo va donde hay que actuar o mirar (botones, novedades, un título destacado). Si en una pantalla hay naranja en más de dos o tres lugares, sobra.
 
-**La regla del papel.** El fondo es siempre papel cálido o azul tinta. El blanco puro no se usa como fondo de sección.
+**La regla del papel.** El fondo es siempre papel cálido o azul tinta (azul noche en modo oscuro). El blanco puro no se usa como fondo de sección.
 
 ## Typography
 
@@ -226,7 +244,8 @@ Cálidos y decididos: forma de píldora, tipografía de títulos y un movimiento
 - **Etiqueta "Nuevo":** píldora naranja brújula profundo con texto blanco en mayúsculas y resplandor suave. Va arriba del título del ítem destacado, cuyo título también pasa a naranja.
 
 ### Navigation
-- **Header:** transparente sobre la foto del hero, con el logo y el nombre a la izquierda y el botón ghost "Contactanos" a la derecha. Debajo de 359px se oculta el nombre y queda solo el logo.
+- **Header:** transparente sobre la foto del hero, con el logo y el nombre a la izquierda y, a la derecha, el botón de tema y el botón ghost "Contactanos". Debajo de 480px el nombre queda oculto visualmente (sigue disponible para lectores de pantalla) y se ve solo el logo.
+- **Botón de tema:** círculo de 40px con el mismo borde que el botón ghost; muestra una luna en modo claro y un sol en modo oscuro (íconos SVG de trazo 1.75). Su etiqueta accesible dice a qué modo cambia.
 - **Footer:** azul tinta. Los títulos de grupo van en blanco y los links en blanco al 82%, que pasan a durazno con subrayado al pasar el mouse. Las redes son círculos con borde que se rellenan de blanco. Los datos legales van al pie, con una línea divisoria.
 
 ### Rotador "Viajá…"

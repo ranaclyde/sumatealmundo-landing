@@ -164,6 +164,74 @@
           "#c6cff7",
           "#e5ecff"
         ]
+      },
+      "azul-noche-superficie": {
+        "role": "neutral",
+        "displayName": "Azul noche superficie",
+        "canonical": "#1c1f4d",
+        "usage": "Modo oscuro: banda de la cita.",
+        "tonalRamp": [
+          "#070721",
+          "#1f2344",
+          "#3b416b",
+          "#5a6294",
+          "#7c85b8",
+          "#a2abda",
+          "#c6cef9",
+          "#e4ecff"
+        ],
+        "oklch": "oklch(26.6% 0.084 276.3)"
+      },
+      "azul-noche-pie": {
+        "role": "neutral",
+        "displayName": "Azul noche pie",
+        "canonical": "#0e1033",
+        "usage": "Modo oscuro: footer.",
+        "tonalRamp": [
+          "#07091d",
+          "#20243f",
+          "#3c4264",
+          "#5b638c",
+          "#7e86b0",
+          "#a4acd2",
+          "#c8cff2",
+          "#e6edff"
+        ],
+        "oklch": "oklch(19.7% 0.068 275.7)"
+      },
+      "papel-suave": {
+        "role": "neutral",
+        "displayName": "Papel suave",
+        "canonical": "#b9b6cf",
+        "usage": "Modo oscuro: texto secundario.",
+        "tonalRamp": [
+          "#0b0914",
+          "#262433",
+          "#454254",
+          "#666379",
+          "#89869c",
+          "#adabbf",
+          "#d1cee1",
+          "#eeecfd"
+        ],
+        "oklch": "oklch(78.7% 0.035 291.1)"
+      },
+      "naranja-claro": {
+        "role": "primary",
+        "displayName": "Naranja claro",
+        "canonical": "#ff8a65",
+        "usage": "Modo oscuro: acento de texto.",
+        "tonalRamp": [
+          "#270000",
+          "#500100",
+          "#7b2200",
+          "#a8401c",
+          "#cf6746",
+          "#f19173",
+          "#ffb89d",
+          "#ffd9bf"
+        ],
+        "oklch": "oklch(75.5% 0.151 38.3)"
       }
     },
     "typographyMeta": {

@@ -1,6 +1,23 @@
 @import 'tailwindcss';
 
 /*
+ * Modo oscuro ("Diario de noche").
+ * - data-theme="dark" en <html> lo fuerza (elección guardada con el botón del header).
+ * - Sin elección, sigue a prefers-color-scheme. data-theme="light" lo fuerza a claro.
+ * Así funciona aun sin JavaScript.
+ */
+@custom-variant dark {
+	&:where([data-theme='dark'], [data-theme='dark'] *) {
+		@slot;
+	}
+	@media (prefers-color-scheme: dark) {
+		&:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *) {
+			@slot;
+		}
+	}
+}
+
+/*
  * Tokens del sistema "Diario de viaje" (ver DESIGN.md).
  * Los nombres coinciden con los de DESIGN.md: bg-papel, text-azul-tinta, font-display, text-headline…
  */
@@ -16,6 +33,13 @@
 	--color-papel: #f6f1e7;
 	--color-papel-profundo: #ece4d3;
 	--color-linea: color-mix(in oklab, #1f2257 18%, transparent);
+
+	/* Paleta del modo oscuro */
+	--color-azul-noche-superficie: #1c1f4d;
+	--color-azul-noche-pie: #0e1033;
+	--color-papel-suave: #b9b6cf;
+	--color-naranja-claro: #ff8a65;
+	--color-linea-noche: color-mix(in oklab, #f6f1e7 16%, transparent);
 
 	/* Fuentes */
 	--font-display: 'Bricolage Grotesque Variable', 'Figtree Variable', sans-serif;
@@ -97,16 +121,28 @@
 		color-scheme: light;
 		accent-color: var(--color-naranja-brujula-profundo);
 		caret-color: var(--color-naranja-brujula-profundo);
+		@variant dark {
+			color-scheme: dark;
+			accent-color: var(--color-naranja-claro);
+			caret-color: var(--color-naranja-claro);
+		}
 	}
 
 	html {
 		scroll-behavior: smooth;
 		scrollbar-color: var(--color-azul-tinta-suave) var(--color-papel);
+		@variant dark {
+			scrollbar-color: var(--color-papel-suave) var(--color-azul-noche);
+		}
 	}
 
 	body {
 		background: var(--color-papel);
 		color: var(--color-azul-tinta);
+		@variant dark {
+			background: var(--color-azul-noche);
+			color: var(--color-papel);
+		}
 		font-family: var(--font-sans);
 		font-size: var(--text-body);
 		line-height: var(--text-body--line-height);

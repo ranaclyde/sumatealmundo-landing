@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T18:14:53+00:00",
+  "title": "Design System: Sumate al Mundo · TUR",
+  "extensions": {
+    "colorMeta": {
+      "azul-tinta": {
+        "role": "neutral",
+        "displayName": "Azul tinta",
+        "canonical": "#1f2257",
+        "oklch": "oklch(28.4% 0.094 276.2)",
+        "tonalRamp": [
+          "#060624",
+          "#1e2248",
+          "#3a4070",
+          "#58619a",
+          "#7b85be",
+          "#a0aadf",
+          "#c4cefe",
+          "#e3ecff"
+        ]
+      },
+      "azul-tinta-suave": {
+        "role": "neutral",
+        "displayName": "Azul tinta suave",
+        "canonical": "#4a4d7c",
+        "oklch": "oklch(43.9% 0.077 279.9)",
+        "tonalRamp": [
+          "#08071f",
+          "#212342",
+          "#3e4168",
+          "#5e6190",
+          "#8085b4",
+          "#a5aad6",
+          "#c9cef6",
+          "#e7ecff"
+        ]
+      },
+      "naranja-brujula": {
+        "role": "primary",
+        "displayName": "Naranja brújula",
+        "canonical": "#e4572e",
+        "oklch": "oklch(63.7% 0.184 36.5)",
+        "tonalRamp": [
+          "#2c0000",
+          "#570000",
+          "#850b00",
+          "#b52f00",
+          "#dc5a36",
+          "#fe8867",
+          "#ffb193",
+          "#ffd3b7"
+        ]
+      },
+      "naranja-brujula-profundo": {
+        "role": "primary",
+        "displayName": "Naranja brújula profundo",
+        "canonical": "#c2411c",
+        "oklch": "oklch(55.4% 0.172 35.9)",
+        "tonalRamp": [
+          "#2b0000",
+          "#550000",
+          "#811500",
+          "#b03510",
+          "#d75f3f",
+          "#f98b6e",
+          "#ffb398",
+          "#ffd5bb"
+        ]
+      },
+      "naranja-brujula-oscuro": {
+        "role": "primary",
+        "displayName": "Naranja brújula oscuro",
+        "canonical": "#a8360f",
+        "oklch": "oklch(49.6% 0.156 37.1)",
+        "tonalRamp": [
+          "#280000",
+          "#510000",
+          "#7d1f00",
+          "#aa3d1b",
+          "#d16545",
+          "#f38f72",
+          "#ffb79c",
+          "#ffd7bf"
+        ]
+      },
+      "durazno": {
+        "role": "primary",
+        "displayName": "Durazno",
+        "canonical": "#ffb196",
+        "oklch": "oklch(82.8% 0.099 39.9)",
+        "tonalRamp": [
+          "#1f0000",
+          "#431606",
+          "#6a331f",
+          "#94513a",
+          "#b9765e",
+          "#db9d87",
+          "#fbc2ae",
+          "#ffe1cf"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#f6f1e7",
+        "oklch": "oklch(95.9% 0.014 84.6)",
+        "tonalRamp": [
+          "#0e0b05",
+          "#2a261f",
+          "#49453c",
+          "#6a665d",
+          "#8d8980",
+          "#b2ada4",
+          "#d5d0c7",
+          "#f3eee4"
+        ]
+      },
+      "papel-profundo": {
+        "role": "neutral",
+        "displayName": "Papel profundo",
+        "canonical": "#ece4d3",
+        "oklch": "oklch(92.1% 0.024 85.8)",
+        "tonalRamp": [
+          "#0e0b05",
+          "#2a261c",
+          "#4a4439",
+          "#6c6557",
+          "#8f887a",
+          "#b4ada0",
+          "#d6d0c4",
+          "#f3eee3"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el título del hero (\"Viajá\" + frase rotativa)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección."
+      },
+      "quote": {
+        "displayName": "Cita",
+        "purpose": "La cita destacada."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nombres de programas en la lista editorial."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Párrafos y descripciones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Solo la etiqueta \"Nuevo\"."
+      },
+      "button": {
+        "displayName": "Botón",
+        "purpose": "Texto de botones."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resplandor-accion",
+        "value": "0 8px 24px -10px color-mix(in oklab, #c2411c 70%, transparent)",
+        "purpose": "Debajo del botón principal."
+      },
+      {
+        "name": "resplandor-etiqueta",
+        "value": "0 6px 16px -8px color-mix(in oklab, #c2411c 80%, transparent)",
+        "purpose": "Debajo de la etiqueta \"Nuevo\"."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva de todas las transiciones."
+      },
+      {
+        "name": "estado",
+        "value": "0.3s",
+        "purpose": "Hover y foco de botones y links."
+      },
+      {
+        "name": "lista",
+        "value": "0.5s",
+        "purpose": "Desplazamiento de los ítems de la lista al pasar el mouse."
+      },
+      {
+        "name": "rotador",
+        "value": "0.7s cada cambio, cada 2.8s",
+        "purpose": "Frases del hero."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nombre-header",
+        "value": "359px"
+      },
+      {
+        "name": "lista-una-columna",
+        "value": "560px"
+      },
+      {
+        "name": "cta-hero-scroll",
+        "value": "640px"
+      },
+      {
+        "name": "footer",
+        "value": "720px"
+      },
+      {
+        "name": "lista-intro-arriba",
+        "value": "860px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal (\"Quiero sumarme\"), con flecha.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Quiero sumarme <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border:0;border-radius:999px;font-family:'Bricolage Grotesque Variable','Figtree Variable',sans-serif;font-weight:650;font-size:1rem;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:background-color .3s cubic-bezier(0.16, 1, 0.3, 1),color .3s cubic-bezier(0.16, 1, 0.3, 1),transform .3s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .3s cubic-bezier(0.16, 1, 0.3, 1);background:#c2411c;color:#fff;box-shadow:0 8px 24px -10px rgb(194 65 28 / .7)} .ds-btn-primary svg{transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1)} .ds-btn-primary:hover{background:#a8360f;transform:translateY(-1px)} .ds-btn-primary:hover svg{transform:translateX(3px)} .ds-btn-primary:focus-visible{outline:2px solid #e4572e;outline-offset:3px;}"
+    },
+    {
+      "name": "Botón ghost",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Sobre la foto o fondos oscuros (\"Contactanos\" del header).",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-ghost\" href=\"#\">Contactanos</a></div>",
+      "css": ".ds-dark{background:#1f2257;padding:24px;border-radius:8px} .ds-btn-ghost{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border:0;border-radius:999px;font-family:'Bricolage Grotesque Variable','Figtree Variable',sans-serif;font-weight:650;font-size:1rem;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:background-color .3s cubic-bezier(0.16, 1, 0.3, 1),color .3s cubic-bezier(0.16, 1, 0.3, 1),transform .3s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .3s cubic-bezier(0.16, 1, 0.3, 1);padding:.6em 1.15em;font-size:.9375rem;background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgb(255 255 255 / .55)} .ds-btn-ghost:hover{background:#fff;color:#1f2257} .ds-btn-ghost:focus-visible{outline:2px solid #e4572e;outline-offset:3px;}"
+    },
+    {
+      "name": "Botón outline",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Acción secundaria sobre papel (\"Contactanos\" del cierre).",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Contactanos</a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border:0;border-radius:999px;font-family:'Bricolage Grotesque Variable','Figtree Variable',sans-serif;font-weight:650;font-size:1rem;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:background-color .3s cubic-bezier(0.16, 1, 0.3, 1),color .3s cubic-bezier(0.16, 1, 0.3, 1),transform .3s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .3s cubic-bezier(0.16, 1, 0.3, 1);background:transparent;color:#1f2257;box-shadow:inset 0 0 0 1.5px #1f2257} .ds-btn-outline:hover{background:#1f2257;color:#fff} .ds-btn-outline:focus-visible{outline:2px solid #e4572e;outline-offset:3px;}"
+    },
+    {
+      "name": "Etiqueta Nuevo",
+      "kind": "chip",
+      "refersTo": "badge-nuevo",
+      "description": "Marca una novedad real en la lista de programas.",
+      "html": "<span class=\"ds-badge\">Nuevo</span>",
+      "css": ".ds-badge{display:inline-block;padding:.3em .8em;border-radius:999px;background:#c2411c;color:#fff;font-family:'Bricolage Grotesque Variable','Figtree Variable',sans-serif;font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.4;box-shadow:0 6px 16px -8px rgb(194 65 28 / .8)}"
+    },
+    {
+      "name": "Lista editorial",
+      "kind": "custom",
+      "description": "Programas separados por líneas finas; al pasar el mouse se desplazan y el título pasa a naranja.",
+      "html": "<ul class=\"ds-list\"><li class=\"ds-featured\"><span class=\"ds-badge2\">Nuevo</span><h3>Viajes exóticos, especiales e históricos</h3><p>Viajá a lugares que siempre soñaste conocer o volvé a esos rincones que te invitan a regresar.</p></li><li><h3>High School</h3><p>Preparate para un mundo internacional.</p></li></ul>",
+      "css": ".ds-list{list-style:none;margin:0;padding:0;border-top:1px solid rgb(31 34 87 / .18);background:#f6f1e7;color:#1f2257;font-family:'Figtree Variable',system-ui,sans-serif} .ds-list li{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem;align-items:baseline;padding:1.75rem 0;border-bottom:1px solid rgb(31 34 87 / .18)} .ds-list li>*{transition:transform .5s cubic-bezier(0.16, 1, 0.3, 1),color .4s cubic-bezier(0.16, 1, 0.3, 1)} .ds-list li:hover>*{transform:translateX(.75rem)} .ds-list h3{margin:0;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:1.75rem;font-weight:650;line-height:1.02;letter-spacing:-.03em} .ds-list li:hover h3,.ds-featured h3{color:#c2411c} .ds-list p{margin:0;color:#4a4d7c} .ds-badge2{grid-column:1/-1;justify-self:start;padding:.3em .8em;border-radius:999px;background:#c2411c;color:#fff;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}"
+    },
+    {
+      "name": "Rotador Viajá",
+      "kind": "custom",
+      "description": "Título del hero: \"Viajá\" fijo en durazno y la frase que rota con fundido y desenfoque.",
+      "html": "<div class=\"ds-hero\"><h1><span class=\"ds-lead\">Viajá</span><span>sintiéndote libre</span></h1></div>",
+      "css": "/* Vista estática del rotador; la rotación la maneja el script del componente Hero. */ .ds-hero{background:linear-gradient(20deg,rgb(20 22 64 / .94) 10%,rgb(20 22 64 / .7) 60%,#4a4d7c);padding:40px 32px;border-radius:8px;color:#fff} .ds-hero h1{margin:0;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:3.5rem;font-weight:750;line-height:1.02;letter-spacing:-.03em} .ds-hero span{display:block} .ds-lead{color:#ffb196}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "description": "Header transparente sobre el hero: logo y nombre a la izquierda, botón ghost a la derecha.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-logo\">SAM</span>Sumate al Mundo</a><a class=\"ds-nav-btn\" href=\"#\">Contactanos</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:20px 24px;background:#1f2257;color:#fff;border-radius:8px} .ds-brand{display:inline-flex;align-items:center;gap:.75rem;color:#fff;text-decoration:none;font-family:'Bricolage Grotesque Variable',sans-serif;font-weight:700;font-size:1.125rem;letter-spacing:-.02em} .ds-logo{display:grid;place-items:center;width:44px;height:40px;border-radius:10px;background:#fff;color:#e4572e;font-weight:800;font-size:.9rem} .ds-nav-btn{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.4em;border:0;border-radius:999px;font-family:'Bricolage Grotesque Variable','Figtree Variable',sans-serif;font-weight:650;font-size:1rem;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:background-color .3s cubic-bezier(0.16, 1, 0.3, 1),color .3s cubic-bezier(0.16, 1, 0.3, 1),transform .3s cubic-bezier(0.16, 1, 0.3, 1),box-shadow .3s cubic-bezier(0.16, 1, 0.3, 1);padding:.6em 1.15em;font-size:.9375rem;background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgb(255 255 255 / .55)} .ds-nav-btn:hover{background:#fff;color:#1f2257} .ds-nav-btn:focus-visible{outline:2px solid #e4572e;outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Diario de viaje",
+    "overview": "La landing se lee como un cuaderno de viaje con propósito: papel cálido, tinta azul marino y un único acento naranja que marca el rumbo, como la aguja de una brújula. La foto del hero (un mapa con manos que trazan una ruta) abre el diario; después la página se vuelve editorial y tranquila, con listas separadas por líneas finas, títulos grandes y mucho aire.\n\nLa identidad sale del logo SAM: el azul y el naranja son los suyos. La tipografía de títulos (Bricolage Grotesque) tiene el mismo carácter robusto y un poco artesanal de las letras del logo; la de texto (Figtree) es clara y amable. El tono visual es cálido y decidido, nunca corporativo ni de folleto de paquetes turísticos.\n\nLa densidad es baja: pocas secciones, cada una con una sola idea. El movimiento es escaso y con intención: un único momento protagonista (las frases \"Viajá…\" que rotan en el hero) y respuestas sutiles al pasar el mouse.",
+    "keyCharacteristics": [
+      "Fondo papel cálido, nunca blanco puro.",
+      "Azul tinta para texto y superficies oscuras; naranja brújula solo para acción y novedad.",
+      "Títulos grandes y compactos en Bricolage Grotesque; texto en Figtree.",
+      "Listas editoriales separadas por líneas finas en lugar de tarjetas.",
+      "Botones tipo píldora, cálidos y decididos."
+    ],
+    "rules": [
+      {
+        "name": "La regla de la aguja",
+        "body": "El naranja marca el rumbo: solo va donde hay que actuar o mirar (botones, novedades, un título destacado). Si en una pantalla hay naranja en más de dos o tres lugares, sobra.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla del papel",
+        "body": "El fondo es siempre papel cálido o azul tinta. El blanco puro no se usa como fondo de sección.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla del título compacto",
+        "body": "Los títulos llevan interlineado ajustado (1.02), tracking negativo (-0.03em) y `text-wrap: balance`. El tracking nunca baja de -0.04em.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de la etiqueta única",
+        "body": "No se ponen etiquetas ni subtítulos chicos arriba de los títulos. La única excepción es la etiqueta \"Nuevo\", que comunica una novedad real.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de las capas de papel",
+        "body": "Para separar una sección se cambia el tono del fondo, no se agregan bordes ni tarjetas con sombra.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** usar papel (`papel`) como fondo y azul tinta (`azul-tinta`) para el texto.",
+      "**Do** reservar el naranja brújula profundo para acciones y novedades (regla de la aguja).",
+      "**Do** usar el durazno (`durazno`) cuando el naranja va sobre azul tinta o sobre la foto.",
+      "**Do** separar el contenido con líneas finas o con cambios de tono de fondo.",
+      "**Do** mover solo `transform`, `opacity` y `filter` en las animaciones, con `cubic-bezier(0.16, 1, 0.3, 1)`, y respetar `prefers-reduced-motion`.",
+      "**Do** dibujar los íconos como SVG de trazo de 1.75–2px con extremos redondeados, como los actuales."
+    ],
+    "donts": [
+      "**Don't** usar tarjetas iguales con ícono, título y texto como estructura de una sección.",
+      "**Don't** poner etiquetas o subtítulos chicos arriba de los títulos (salvo \"Nuevo\").",
+      "**Don't** usar texto con degradado ni sombras de bloque sin desenfoque.",
+      "**Don't** poner texto blanco chico sobre el naranja brújula vivo (`naranja-brujula`): no tiene contraste suficiente; usar el profundo.",
+      "**Don't** agregar un segundo momento animado que compita con el rotador del hero."
+    ]
+  }
+}

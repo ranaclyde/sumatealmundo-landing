@@ -374,7 +374,8 @@
       "**Don't** poner etiquetas o subtítulos chicos arriba de los títulos (salvo \"Nuevo\").",
       "**Don't** usar texto con degradado ni sombras de bloque sin desenfoque.",
       "**Don't** poner texto blanco chico sobre el naranja brújula vivo (`naranja-brujula`): no tiene contraste suficiente; usar el profundo.",
-      "**Don't** agregar un segundo momento animado que compita con el rotador del hero."
+      "**Don't** agregar un segundo momento animado que compita con el rotador del hero.",
+      "**Don't** usar el naranja brújula profundo para texto de menos de 24px sobre papel profundo (4.08:1, no llega a 4.5:1); usar el oscuro (5.19:1). Sobre papel, el profundo alcanza justo (4.59:1)."
     ]
   }
 }

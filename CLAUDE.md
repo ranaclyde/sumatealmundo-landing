@@ -23,8 +23,10 @@ El gestor de paquetes es pnpm (versión fijada en `packageManager` de `package.j
 
 - `pnpm install`
 - `astro dev --background` / `astro dev stop` / `astro dev status` / `astro dev logs`: usar el modo en segundo plano, según `AGENTS.md` (correr con `npx astro …` o `pnpm astro …`). Si el puerto 4321 está ocupado usa otro; verlo con `astro dev status`.
-- `pnpm build`: build estático en `dist/`. No hay tests ni linter; la verificación es un build sin errores más una revisión visual en escritorio y celular.
+- `pnpm build`: build estático en `dist/`. No hay linter.
 - `pnpm preview`: sirve el `dist/` generado.
+- `pnpm test`: pruebas de Playwright (`tests/`) contra el build de producción, en dos proyectos: `escritorio` (1440px) y `celular` (390px). Usan el Chrome instalado (`channel: 'chrome'`), así que no hace falta `playwright install`. Una sola prueba: `pnpm test -g "botón de tema"`; un solo proyecto: `pnpm test --project=celular`. Las capturas de página completa (clara y oscura) quedan adjuntas en `playwright-report/` (`pnpm exec playwright show-report`).
+- Si lo corre un agente, `astro preview` pasa solo a segundo plano y el `webServer` de Playwright lo da por terminado ("exited early"). En ese caso levantar antes `pnpm build && pnpm astro preview --port 4510` (queda en segundo plano y la config lo reutiliza) y detenerlo al final con `pnpm astro preview stop`.
 
 ## Arquitectura
 
@@ -32,6 +34,7 @@ El gestor de paquetes es pnpm (versión fijada en `packageManager` de `package.j
 - `src/data/links.ts` centraliza las URLs (web principal, contacto, redes), los atributos `NEW_TAB` y las frases rotativas del hero (`TAGLINES`, que se muestran como "Viajá" + frase). Regla: los links que no son de sumatealmundo.com (redes, sitios del gobierno, PDFs) se abren en una pestaña nueva con `{...NEW_TAB}`; los de sumatealmundo.com, en la misma.
 - `src/components/Hero.astro` apila todas las frases en una misma celda de grid (así no se mueve el layout) y alterna el atributo `data-active` con un script inline. Con `prefers-reduced-motion` queda fijo. Las frases tienen `aria-hidden` y se repiten en un `span` `sr-only` para lectores de pantalla.
 - Estilos con **Tailwind CSS 4** (plugin `@tailwindcss/vite` en `astro.config.mjs`, sin `tailwind.config`). `src/styles/global.css` declara los tokens de `DESIGN.md` en `@theme` con los mismos nombres en español, así que las clases son `bg-papel`, `text-azul-tinta`, `text-naranja-brujula-profundo`, `font-display`, `text-headline`, `py-section`, `px-gutter`, `ease-salida`, `shadow-accion`, etc. Cada token `--text-*` ya trae interlineado, tracking y peso. Hay dos utilidades propias: `wrap` (contenedor centrado) y `velo-hero` (degradado sobre la foto). Los estilos base (fondo, tipografía, foco, selección) están en `@layer base`. No hay bloques `<style>` en los componentes.
+- **Modo oscuro:** variante `dark:` propia (`@custom-variant` en `global.css`) que se activa con `data-theme="dark"` en `<html>` o, si no hay elección guardada, con `prefers-color-scheme: dark`; `data-theme="light"` fuerza claro. Todo elemento con color de fondo o texto sobre papel necesita su par `dark:` (por ejemplo `text-azul-tinta-suave dark:text-papel-suave`); la paleta oscura está en `DESIGN.md` › Colors › Modo oscuro. El botón y su script están en `Header.astro`, y el script que aplica el tema antes de pintar está en `Layout.astro`.
 - Ojo con las clases de tamaño de Tailwind (`text-base`, `text-lg`…): traen su propio interlineado y rompen el 1.6 heredado del body. Para tamaños sueltos usar valores arbitrarios (`text-[1rem]`) o un token `--text-*` del tema.
 - `src/components/Button.astro` es el botón píldora del sistema (`variant`: `primary` | `ghost` | `outline`; `size`: `md` | `sm`; `arrow` agrega la flecha).
 - Los breakpoints replican los del diseño original con valores arbitrarios (`min-[561px]:`, `min-[641px]:`, `min-[721px]:`, `min-[861px]:`, `max-[359px]:`), no los de Tailwind por defecto.

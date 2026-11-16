@@ -25,6 +25,17 @@ const ogImage = new URL('/og-image.jpg', Astro.site);
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Aplica el tema guardado antes de pintar, para que no parpadee -->
+		<script is:inline>
+			(() => {
+				const root = document.documentElement;
+				root.classList.add('js');
+				try {
+					const tema = localStorage.getItem('tema');
+					if (tema === 'dark' || tema === 'light') root.dataset.theme = tema;
+				} catch {}
+			})();
+		</script>
 		<link rel="preload" href={bricolageLatin} as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href={figtreeLatin} as="font" type="font/woff2" crossorigin />
 		<link rel="icon" href="/favicon.ico" sizes="48x48" />

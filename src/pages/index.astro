@@ -32,16 +32,16 @@ const ways: { title: string; text: string; badge?: string }[] = [
 			<div class="wrap grid items-start gap-[clamp(2.5rem,6vw,6rem)] min-[861px]:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
 				<div class="min-[861px]:sticky min-[861px]:top-10">
 					<h2 class="text-headline">Más formas de viajar, la misma esencia.</h2>
-					<p class="mt-6 max-w-[38ch] text-body-lg text-azul-tinta-suave">
+					<p class="mt-6 max-w-[38ch] text-body-lg text-azul-tinta-suave dark:text-papel-suave">
 						Experiencias interculturales para vivir otro lugar desde adentro: descubriendo
 						destinos únicos, estudiando, sumergiéndote en otro idioma o poniendo en práctica tu profesión.
 					</p>
 				</div>
 
-				<ul class="border-t border-linea">
+				<ul class="border-t border-linea dark:border-linea-noche">
 					{
 						ways.map((w) => (
-							<li class="group grid items-baseline gap-x-8 gap-y-2 border-b border-linea py-item min-[561px]:grid-cols-2 [&>*]:transition-[translate,color] [&>*]:duration-500 [&>*]:ease-salida hover:[&>*]:translate-x-3">
+							<li class="group grid items-baseline gap-x-8 gap-y-2 border-b border-linea py-item dark:border-linea-noche min-[561px]:grid-cols-2 [&>*]:transition-[translate,color] [&>*]:duration-500 [&>*]:ease-salida hover:[&>*]:translate-x-3">
 								{w.badge && (
 									<span class="col-span-full mb-2 justify-self-start rounded-full bg-naranja-brujula-profundo px-[0.8em] py-[0.3em] font-display text-label text-white uppercase shadow-etiqueta">
 										{w.badge}
@@ -49,13 +49,13 @@ const ways: { title: string; text: string; badge?: string }[] = [
 								)}
 								<h3
 									class:list={[
-										'text-title group-hover:text-naranja-brujula-profundo',
-										w.badge && 'text-naranja-brujula-profundo',
+										'text-title group-hover:text-naranja-brujula-profundo dark:group-hover:text-naranja-claro',
+										w.badge && 'text-naranja-brujula-profundo dark:text-naranja-claro',
 									]}
 								>
 									{w.title}
 								</h3>
-								<p class="text-azul-tinta-suave">{w.text}</p>
+								<p class="text-azul-tinta-suave dark:text-papel-suave">{w.text}</p>
 							</li>
 						))
 					}
@@ -63,9 +63,9 @@ const ways: { title: string; text: string; badge?: string }[] = [
 			</div>
 		</section>
 
-		<section class="bg-papel-profundo py-[clamp(4.5rem,11vw,8rem)]" aria-labelledby="quote-title">
+		<section class="bg-papel-profundo dark:bg-azul-noche-superficie py-[clamp(4.5rem,11vw,8rem)]" aria-labelledby="quote-title">
 			<div class="wrap">
-				<h2 id="quote-title" class="font-sans text-[1rem] font-semibold tracking-normal text-naranja-brujula-oscuro">
+				<h2 id="quote-title" class="font-sans text-[1rem] font-semibold tracking-normal text-naranja-brujula-oscuro dark:text-naranja-claro">
 					Vos cambiás el mundo
 				</h2>
 				<figure class="mt-6">
@@ -75,7 +75,7 @@ const ways: { title: string; text: string; badge?: string }[] = [
 							lo único que lo ha logrado.
 						</p>
 					</blockquote>
-					<figcaption class="mt-7 text-azul-tinta-suave">Margaret Mead</figcaption>
+					<figcaption class="mt-7 text-azul-tinta-suave dark:text-papel-suave">Margaret Mead</figcaption>
 				</figure>
 			</div>
 		</section>
